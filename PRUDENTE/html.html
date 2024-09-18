@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ca.css">
+</head>
+
+<body>
+    <div class="container">
+        <button id="country-button">COUNTRY</button>
+        <button id="mycar">CAR</button>
+    </div>
+
+    <div class="five" style="display:none;">
+        <h1 id="name">PHILIPPINES</h1>
+        <h1 id="curent">CURRENCY: PESO</h1>
+        <div class="one">
+            <button onclick="prev()">prev</button>
+            <img src="images/phi.gif" alt="" id="flag-image">
+            <button onclick="next()">next</button>
+        </div>
+    </div>
+
+    <div class="six" style="display:none;">
+        <h1>CARS:</h1>
+        <h1>SELL:</h1>
+        <button onclick="prevCar()">prev</button>
+        <img src="cars/car1.png" alt="" id="car-image">
+        <button onclick="nextCar()">next</button>
+    </div>
+
+    <script>
+        let currentNumber = 0;
+
+        const country = [
+            {
+                images: "phi.gif",
+                name: "PHILIPPINES",
+                curent: "Currency: PESO"
+            },
+            {
+                images: "japan.gif",
+                name: "JAPAN",
+                curent: "Currency: YEN"
+            },
+            {
+                images: "koreas.gif",
+                name: "KOREA",
+                curent: "Currency: WON"
+            }
+        ];
+
+        function updateContent() {
+            const countrys = country[currentNumber];
+            document.getElementById("flag-image").src = `images/${countrys.images}`;
+            document.getElementById("name").textContent = countrys.name;
+            document.getElementById("curent").textContent = countrys.curent;
+        }
+
+        function next() {
+            currentNumber++;
+            if (currentNumber >= country.length) {
+                currentNumber = 0;
+            }
+            updateContent();
+        }
+
+        function prev() {
+            currentNumber--;
+            if (currentNumber < 0) {
+                currentNumber = country.length - 1;
+            }
+            updateContent();
+        }
+
+        // Toggle visibility of the country information
+        document.getElementById("country-button").addEventListener("click", function() {
+            const countryDiv = document.querySelector(".five");
+            const carDiv = document.querySelector(".six");
+            countryDiv.style.display = "block";
+            carDiv.style.display = "none"; // Hide the cars section
+            updateContent(); // Update the country info when showing
+        });
+
+        // Toggle visibility of the cars section
+        document.getElementById("mycar").addEventListener("click", function() {
+            const carDiv = document.querySelector(".six");
+            const countryDiv = document.querySelector(".five");
+            carDiv.style.display = "block"; // Show the cars section
+            countryDiv.style.display = "none"; // Hide the country section
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body{
+     background: linear-gradient(to right,rgb(173, 173, 189),rgb(210, 188, 188));
+}
+
+
+#flag-image{
+    width: 420px;
+
+
+}
+h1{
+    text-align: center;
+}
+.one{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+   
+       
+
+}
+button{
+    border: none;
+    padding: 10px;
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: red;
+}
+.sixs{
+    display: flex;
+    justify-content: center;
+   align-items: center;
+}
+#car-image{
+    width: 550px;
+}
+
+#house-image{
+    width: 450px;
+}
+
+#yows{
+  
+   text-align: center;
+}
+.yow{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+input{
+    width: 195px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+}
+
+::placeholder{
+    text-align: center;
+}
